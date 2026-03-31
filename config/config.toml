@@ -1,0 +1,99 @@
+# Default Configuration for Test Automation Framework
+# Environment-specific overrides are in environment-specific sections
+
+[default]
+log_level = "INFO"
+screenshot_on_failure = true
+screenshot_on_success = false
+implicit_wait_seconds = 10
+explicit_wait_seconds = 15
+page_load_timeout_seconds = 30
+headless = false
+slow_motion_ms = 0
+tracing_enabled = false
+
+[default.browser]
+type = "chromium"  # chromium, firefox, webkit
+viewport = {width = 1920, height = 1080}
+locale = "en-US"
+timezone = "UTC"
+
+[default.logging]
+level = "INFO"
+file_path = "logs/automation.log"
+format = "json"  # json or text
+console_output = true
+
+[default.reporting]
+html_report_path = "reports/html"
+allure_report_path = "reports/allure"
+json_report_path = "reports/json"
+generate_screenshot_in_report = true
+
+# Environment-specific configurations
+[environment.dev]
+base_url = "http://localhost:3000"
+api_base_url = "http://localhost:8080/api"
+headless = false
+implicit_wait_seconds = 10
+explicit_wait_seconds = 15
+
+[environment.dev.database]
+host = "localhost"
+port = 5432
+name = "automation_test_db"
+user = "test_user"
+driver = "postgresql"  # postgresql, mysql, sqlite
+
+[environment.dev.aws]
+region = "us-east-1"
+use_local_stack = true
+endpoint_url = "http://localhost:4566"
+
+[environment.staging]
+base_url = "https://staging-app.example.com"
+api_base_url = "https://staging-api.example.com/api"
+headless = true
+implicit_wait_seconds = 15
+explicit_wait_seconds = 20
+
+[environment.staging.database]
+host = "staging-db.example.com"
+port = 5432
+name = "staging_automation_db"
+user = "staging_user"
+driver = "postgresql"
+
+[environment.staging.aws]
+region = "us-east-1"
+use_local_stack = false
+
+[environment.prod]
+base_url = "https://prod-app.example.com"
+api_base_url = "https://prod-api.example.com/api"
+headless = true
+implicit_wait_seconds = 20
+explicit_wait_seconds = 25
+
+[environment.prod.database]
+host = "prod-db.example.com"
+port = 5432
+name = "prod_automation_db"
+user = "prod_user"
+driver = "postgresql"
+
+[environment.prod.aws]
+region = "us-east-1"
+use_local_stack = false
+
+# Test data configuration
+[test_data]
+faker_locale = "en_US"
+seed = null  # Set to integer for reproducible data
+
+# Retry configuration
+[retry]
+max_attempts = 3
+backoff_multiplier = 2.0
+backoff_base = 1.0  # seconds
+jitter_enabled = true
