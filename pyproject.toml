@@ -28,7 +28,7 @@ dependencies = [
     "sqlalchemy>=2.0.0",  # ORM for DB layer
     "psycopg2-binary>=2.9.0",  # PostgreSQL driver (optional)
     "boto3>=1.29.0",  # AWS SDK (optional)
-    "loguru>=0.7.2",  # Advanced logging
+    "loguru>=0.7.2",  # Advanced
     "retry>=0.9.2",  # Retry decorator
 ]
 

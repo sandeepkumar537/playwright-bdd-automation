@@ -89,7 +89,7 @@ use_local_stack = false
 # Test data configuration
 [test_data]
 faker_locale = "en_US"
-seed = null  # Set to integer for reproducible data
+# seed = 12345  # Uncomment and set to integer for reproducible data
 
 # Retry configuration
 [retry]
